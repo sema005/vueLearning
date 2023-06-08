@@ -1,42 +1,19 @@
 <script setup>
-import EventCard from '../components/EventCard.vue'
-import { ref } from 'vue'
+import EventService from "@/services/EventService.js";
+import EventCard from "@/components/EventCard.vue";
+import { onMounted, ref } from "vue";
 
-const events = ref([
-  {
-    id: 1,
-    category: 'Vue',
-    title: 'Vue for noobs',
-    description: 'Vue for nybegynner som ønsker å bli mestere',
-    location: 'Torp',
-    date: '09 Juni 2023',
-    time: '09:00',
-    petsAllowed: false,
-    organizer: 'Seebrite AS'
-  },
-  {
-    id: 2,
-    category: 'Admin',
-    title: 'Admin for noobs',
-    description: 'Admin for nybegynner som ønsker å bli mestere',
-    location: 'Torp',
-    date: '09 Juni 2023',
-    time: '09:00',
-    petsAllowed: false,
-    organizer: 'Seebrite AS'
-  },
-  {
-    id: 3,
-    category: 'Seebrite',
-    title: 'Seebrite for noobs',
-    description: 'Seebrite for nybegynner som ønsker å bli mestere',
-    location: 'Torp',
-    date: '09 Juni 2023',
-    time: '09:00',
-    petsAllowed: false,
-    organizer: 'Seebrite AS'
-  }
-])
+const events = ref(null);
+
+onMounted(() => {
+  EventService.getEvents()
+    .then((response) => {
+      events.value = response.data;
+    })
+    .catch((error) => {
+      console.log("Error", error);
+    });
+});
 </script>
 
 <template>
