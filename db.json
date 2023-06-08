@@ -32,6 +32,50 @@
       "time": "09:00",
       "petsAllowed": false,
       "organizer": "Seebrite AS"
+    },
+    {
+      "id": 4,
+      "category": "Seebrite",
+      "title": "Seebrite for noobs",
+      "description": "Seebrite for nybegynner som ønsker å bli mestere",
+      "location": "Torp",
+      "date": "09 Juni 2023",
+      "time": "09:00",
+      "petsAllowed": false,
+      "organizer": "Seebrite AS"
+    },
+    {
+      "id": 5,
+      "category": "Seebrite",
+      "title": "Seebrite for noobs",
+      "description": "Seebrite for nybegynner som ønsker å bli mestere",
+      "location": "Torp",
+      "date": "09 Juni 2023",
+      "time": "09:00",
+      "petsAllowed": false,
+      "organizer": "Seebrite AS"
+    },
+    {
+      "id": 6,
+      "category": "Seebrite",
+      "title": "Seebrite for noobs",
+      "description": "Seebrite for nybegynner som ønsker å bli mestere",
+      "location": "Torp",
+      "date": "09 Juni 2023",
+      "time": "09:00",
+      "petsAllowed": false,
+      "organizer": "Seebrite AS"
+    },
+    {
+      "id": 7,
+      "category": "Seebrite",
+      "title": "Seebrite for noobs",
+      "description": "Seebrite for nybegynner som ønsker å bli mestere",
+      "location": "Torp",
+      "date": "09 Juni 2023",
+      "time": "09:00",
+      "petsAllowed": false,
+      "organizer": "Seebrite AS"
     }
   ]
 }
