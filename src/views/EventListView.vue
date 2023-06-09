@@ -1,9 +1,10 @@
 <script setup>
 import EventService from "@/services/EventService.js";
 import EventCard from "@/components/EventCard.vue";
-import { onMounted, ref, watchEffect } from "vue";
+import { onMounted, ref, watchEffect, defineProps } from "vue";
 
 const events = ref(null);
+const totalEvents = ref(0);
 
 const props = defineProps({
   page: {
@@ -12,21 +13,22 @@ const props = defineProps({
 })
 
 const hasNextPage = () => {
-      var totalPages = Math.ceil(this.totalEvents / 2)
-      return page < totalPages
-    }
+  var totalPages = Math.ceil(totalEvents.value / 2);
+  return props.page < totalPages;
+};
 
 onMounted(() => {
-  watchEffect( () => {
+  watchEffect(() => {
     events.value = null;
     EventService.getEvents(2, props.page)
-    .then((response) => {
-      events.value = response.data;
-    })
-    .catch((error) => {
-      console.log("Error", error);
-    });
-  })
+      .then((response) => {
+        events.value = response.data;
+        totalEvents.value = response.headers['x-total-count'];
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+  });
 });
 </script>
 
@@ -45,6 +47,7 @@ onMounted(() => {
     <router-link
       :to="{name: 'event-list', query: { page: page + 1 }}"
       rel="prev"
+      v-if="hasNextPage()"
     >
       Neste
     </router-link>
@@ -58,3 +61,6 @@ onMounted(() => {
   align-items: center;
 }
 </style>
+
+
+
