@@ -1,9 +1,7 @@
-<script setup>
-const props = defineProps({
-    event: {
-        required: true,
-    }
-})
+<script>
+export default {
+  props: ['event']
+}
 </script>
 
 <template>

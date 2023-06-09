@@ -1,12 +1,11 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
+import { createApp, reactive } from 'vue'
 import App from './App.vue'
 import router from './router'
+import GStore from './stores'
+import 'nprogress/nprogress.css'
 
-const app = createApp(App)
 
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+createApp(App)
+  .use(router)
+  .provide('GStore', GStore)
+  .mount('#app')
