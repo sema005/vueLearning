@@ -47,6 +47,7 @@ onMounted(() => {
       >&#60
       Forrige
     </router-link>
+    <p id="page-number"> {{ page }} </p>
     <router-link
     id="page-next"
     :to="{name: 'event-list', query: { page: page + 1 }}"
@@ -67,12 +68,13 @@ onMounted(() => {
 }
 
 .pagination {
-  display: flex;
+  display: grid;
   width: 290px;
+  grid-template-columns: auto auto auto;
+  align-items: center;
 }
 
 .pagination a {
-  flex: 1;
   text-decoration: none;
   color: #2c3e50;
 }
@@ -83,6 +85,14 @@ onMounted(() => {
 
 #page-next {
   text-align: right;
+}
+
+#page-number {
+  justify-self: center;
+  border: 2px solid black;
+  border-radius: 100%;
+  padding: .5rem;
+  width: fit-content;
 }
 </style>
 
